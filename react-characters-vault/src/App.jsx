@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar';
 import CharacterList from './components/CharacterList';
 import FavoriteCharacters from './components/FavoriteCharacters';
 import MarvelContext from './context/MarvelContext';
+import CharacterDetails from './components/CharacterDetails';
 
 import './App.css'
 
@@ -48,6 +49,7 @@ useEffect(() => {
         <h1>Marvel Character Explorer</h1>
         <SearchBar />
         <CharacterList />
+        <CharacterDetails />
         <FavoriteCharacters />
       </div>
 
