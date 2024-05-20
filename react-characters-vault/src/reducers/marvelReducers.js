@@ -7,6 +7,10 @@
         return { ...state, searchQuery: action.payload };
       case 'SET_SELECTED_CHARACTER': 
         return { ...state, selectedCharacter: action.payload };
+      case 'ADD_TO_FAVORITES':
+        return {...state, favoriteCharacters: [...state.favoriteCharacters, action.payload] };
+      case 'REMOVE_FROM_FAVORITES':
+        return {...state, favoriteCharacters: state.favoriteCharacters.filter(character => character.id !== action.payload)};
       default: 
         return state;
     }
