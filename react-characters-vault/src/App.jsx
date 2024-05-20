@@ -1,8 +1,15 @@
 import React, { useReducer, useEffect } from 'react';
 import axios  from 'axios';
 import { generateMarvelApiUrl } from './marvelApi';
-import {ACTION, marvelReducer} from './reducers/marvelReducers';
+import marvelReducer from './reducers/marvelReducers';
+
+// import CharacterList from './components/CharacterList'
+import SearchBar from './components/SearchBar';
+import CharacterList from './components/CharacterList';
+import MarvelContext from './context/MarvelContext';
+
 import './App.css'
+
 
 
 function App() {
@@ -17,24 +24,32 @@ const initialState = {
 const [state, dispatch] = useReducer(marvelReducer, initialState)
 
 
-useEffect (()=> {
-      const endpoint = 'comics'; // You can change this to any Marvel API endpoint
-      const url = generateMarvelApiUrl(endpoint);
-      axios.get(url)
-      .then(response => {
-        dispatch({ type: ACTION.SET_CHARACTERS, payload: response.data.data.results });
-        console.log('Successful connection!')
-        console.log(state)
-      })
-      .catch(error => console.error('Error fetching characters:', error));
-  },[])
 
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const endpoint = 'characters';
+      const url = generateMarvelApiUrl(endpoint);
+      const response = await axios.get(url);
+      dispatch({ type: 'SET_CHARACTERS', payload: response.data.data.results });
+    } catch (error) {
+      console.error('Error fetching characters:', error);
+    }
+  };
+
+  fetchData();
+}, []);
 
 
   return (
-    <>
-      
-    </>
+    <MarvelContext.Provider value={{ state, dispatch }}>
+      <div>
+        <h1>Marvel Character Explorer</h1>
+        <SearchBar />
+        <CharacterList />
+      </div>
+
+    </MarvelContext.Provider>
   )
 }
 

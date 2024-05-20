@@ -1,16 +1,17 @@
-export const ACTION = {
-    SET_CHARACTERS: 'set_characters',
-}
 
-export const marvelReducer = (state, action) => {
+ const marvelReducer = (state, action) => {
     switch (action.type){
-      case ACTION.SET_CHARACTERS:
-        return {...state, characters: action.payload }
+      case 'SET_CHARACTERS':
+        return {...state, characters: action.payload };
+       case 'SET_SEARCH_QUERY':
+        return { ...state, searchQuery: action.payload };
+      case 'SET_SELECTED_CHARACTER': 
+        return { ...state, selectedCharacter: action.payload };
       default: 
         return state;
     }
   }
 
-//   export default marvelReducer;
+  export default marvelReducer;
 
   
