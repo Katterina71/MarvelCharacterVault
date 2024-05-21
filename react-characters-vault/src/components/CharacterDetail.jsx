@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
+import '../CharacterDetail.css'; // Import the CSS file for styling
 
 const CharacterDetail = () => {
   const { id } = useParams();
@@ -22,11 +23,46 @@ const CharacterDetail = () => {
   }
 
   return (
-    <div>
-      <h1>{character.name}</h1>
-      <p>{character.description}</p>
-      <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
-      <Link to="/">Back to list</Link>
+    <div className="character-detail">
+      <Link to="/" className="back-link">Back to list</Link>
+      <div className="character-header">
+        <img
+          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          alt={character.name}
+          className="character-image"
+        />
+        <div className="character-info">
+          <h1>{character.name}</h1>
+          <p>{character.description || "No description available."}</p>
+        </div>
+      </div>
+      <div className="character-details">
+        <h2>Details</h2>
+        <div className="character-section">
+          <h3>Series</h3>
+          <ul>
+            {character.series.items.map((series) => (
+              <li key={series.resourceURI}>{series.name}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="character-section">
+          <h3>Stories</h3>
+          <ul>
+            {character.stories.items.map((story) => (
+              <li key={story.resourceURI}>{story.name}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="character-section">
+          <h3>Events</h3>
+          <ul>
+            {character.events.items.map((event) => (
+              <li key={event.resourceURI}>{event.name}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
