@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { MarvelProvider } from './context/MarvelContext';
 import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
 import AlphabetButtons from './components/AlphabetButtons';
 import CharacterList from './components/CharacterList';
 import CharacterDetail from './components/CharacterDetail';
@@ -27,6 +28,7 @@ const App = () => {
             path="/"
             element={
               <>
+                <HeroSection />
                 <AlphabetButtons onLetterClick={handleLetterClick} />
                 <CharacterList letter={selectedLetter} />
               </>

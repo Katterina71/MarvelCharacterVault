@@ -1,0 +1,30 @@
+/* HeroSection.css */
+
+.hero-section {
+    background-image: url('../public/marvel-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .hero-section h1 {
+    margin: 0;
+    font-size: 3em;
+  }
+  
+  .hero-section p {
+    margin: 10px 0 0;
+    font-size: 1.5em;
+  }
+  
