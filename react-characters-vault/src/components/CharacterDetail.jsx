@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
 
@@ -26,6 +26,7 @@ const CharacterDetail = () => {
       <h1>{character.name}</h1>
       <p>{character.description}</p>
       <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
+      <Link to="/">Back to list</Link>
     </div>
   );
 };

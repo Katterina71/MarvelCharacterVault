@@ -6,11 +6,12 @@ import AlphabetButtons from './components/AlphabetButtons';
 import CharacterList from './components/CharacterList';
 import CharacterDetail from './components/CharacterDetail';
 import SearchBar from './components/SearchBar';
+import SearchResults from './components/SearchResults';
 import Favorites from './components/Favorites';
 import './index.css';
 
 const App = () => {
-  const [selectedLetter, setSelectedLetter] = useState('A');
+  const [selectedLetter, setSelectedLetter] = useState('');
 
   const handleLetterClick = (letter) => {
     setSelectedLetter(letter);
@@ -21,10 +22,18 @@ const App = () => {
       <Router>
         <Navbar />
         <SearchBar />
-        <AlphabetButtons onLetterClick={handleLetterClick} />
         <Routes>
-          <Route path="/" element={<CharacterList letter={selectedLetter} />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <AlphabetButtons onLetterClick={handleLetterClick} />
+                <CharacterList letter={selectedLetter} />
+              </>
+            }
+          />
           <Route path="/character/:id" element={<CharacterDetail />} />
+          <Route path="/search" element={<SearchResults />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </Router>

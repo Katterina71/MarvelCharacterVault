@@ -1,7 +1,7 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import React, { createContext, useReducer, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
-import { initialState, marvelReducer } from '../reducers/marvelReducers';
+import { initialState, marvelReducer } from '../reducers/marvelReducer';
 
 const MarvelContext = createContext();
 
@@ -23,6 +23,21 @@ const MarvelProvider = ({ children }) => {
     }
   };
 
+  const searchCharacters = async (query) => {
+    const url = generateMarvelApiUrl('characters', 100, 0) + `&nameStartsWith=${query}`;
+
+    try {
+      dispatch({ type: 'SET_LOADING' });
+      const response = await axios.get(url);
+      dispatch({
+        type: 'SEARCH_SUCCESS',
+        payload: { characters: response.data.data.results },
+      });
+    } catch (error) {
+      dispatch({ type: 'FETCH_FAILURE', payload: error.message });
+    }
+  };
+
   const addFavorite = (character) => {
     dispatch({ type: 'ADD_FAVORITE', payload: character });
   };
@@ -32,7 +47,7 @@ const MarvelProvider = ({ children }) => {
   };
 
   return (
-    <MarvelContext.Provider value={{ state, fetchCharacters, addFavorite, removeFavorite }}>
+    <MarvelContext.Provider value={{ state, fetchCharacters, searchCharacters, addFavorite, removeFavorite }}>
       {children}
     </MarvelContext.Provider>
   );

@@ -1,5 +1,6 @@
 const initialState = {
   characters: {},
+  searchResults: [],
   loading: false,
   error: null,
   favorites: [],
@@ -16,6 +17,12 @@ const marvelReducer = (state, action) => {
           ...state.characters,
           [action.payload.letter]: action.payload.characters,
         },
+        loading: false,
+      };
+    case 'SEARCH_SUCCESS':
+      return {
+        ...state,
+        searchResults: action.payload.characters,
         loading: false,
       };
     case 'FETCH_FAILURE':

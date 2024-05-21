@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
-  const { fetchCharacters } = useMarvel();
+  const { searchCharacters } = useMarvel();
+  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    fetchCharacters(query);
+  const handleSearch = async () => {
+    await searchCharacters(query);
+    navigate('/search');
   };
 
   return (

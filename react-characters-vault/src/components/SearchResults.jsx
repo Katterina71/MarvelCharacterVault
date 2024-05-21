@@ -2,23 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
-const CharacterList = ({ letter }) => {
-  const { state, fetchCharacters, addFavorite } = useMarvel();
-
-  React.useEffect(() => {
-    if (!letter) return;
-    fetchCharacters(letter);
-  }, [letter]);
+const SearchResults = () => {
+  const { state, addFavorite } = useMarvel();
 
   if (state.loading) {
     return <p>Loading...</p>;
   }
 
-  const characters = state.characters[letter] || [];
+  const characters = state.searchResults;
 
   return (
     <div>
-      {letter && <h2>Characters starting with {letter}</h2>}
+      <h2>Search Results</h2>
       <ul>
         {characters.map(character => (
           <li key={character.id}>
@@ -31,4 +26,4 @@ const CharacterList = ({ letter }) => {
   );
 };
 
-export default CharacterList;
+export default SearchResults;

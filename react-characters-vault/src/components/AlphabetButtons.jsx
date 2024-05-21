@@ -1,6 +1,8 @@
 import React from 'react';
+import { useMarvel } from '../context/MarvelContext';
 
 const AlphabetButtons = ({ onLetterClick }) => {
+  const { fetchCharacters } = useMarvel();
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   return (

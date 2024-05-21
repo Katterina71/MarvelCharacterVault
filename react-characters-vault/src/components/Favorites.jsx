@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMarvel } from '../context/MarvelContext';
+import { Link } from 'react-router-dom';
 
 const Favorites = () => {
   const { state, removeFavorite } = useMarvel();
@@ -14,7 +15,7 @@ const Favorites = () => {
       <ul>
         {state.favorites.map(character => (
           <li key={character.id}>
-            {character.name}
+            <Link to={`/character/${character.id}`}>{character.name}</Link>
             <button onClick={() => removeFavorite(character.id)}>❌</button>
           </li>
         ))}
