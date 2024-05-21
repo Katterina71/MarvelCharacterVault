@@ -38,29 +38,37 @@ const CharacterDetail = () => {
       </div>
       <div className="character-details">
         <h2>Details</h2>
-        <div className="character-section">
-          <h3>Series</h3>
-          <ul>
-            {character.series.items.map((series) => (
-              <li key={series.resourceURI}>{series.name}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="character-section">
-          <h3>Stories</h3>
-          <ul>
-            {character.stories.items.map((story) => (
-              <li key={story.resourceURI}>{story.name}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="character-section">
-          <h3>Events</h3>
-          <ul>
-            {character.events.items.map((event) => (
-              <li key={event.resourceURI}>{event.name}</li>
-            ))}
-          </ul>
+        <div className="character-sections">
+          <div className="character-section">
+            <h3>Series</h3>
+            <ul>
+              {character.series.items.map((series) => (
+                <li key={series.resourceURI}>
+                  <a href={series.resourceURI}>{series.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="character-section">
+            <h3>Stories</h3>
+            <ul>
+              {character.stories.items.map((story) => (
+                <li key={story.resourceURI}>
+                  <a href={story.resourceURI}>{story.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="character-section">
+            <h3>Events</h3>
+            <ul>
+              {character.events.items.map((event) => (
+                <li key={event.resourceURI}>
+                  <a href={event.resourceURI}>{event.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
