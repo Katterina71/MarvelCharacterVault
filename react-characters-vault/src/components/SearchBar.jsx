@@ -12,16 +12,23 @@ const SearchBar = () => {
     navigate('/search');
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search characters"
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+    <input
+      type="text"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      placeholder="Search characters"
+      onKeyPress={handleKeyPress}
+    />
+    <button onClick={handleSearch}>Search</button>
+  </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect, useContext } from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
 import { initialState, marvelReducer } from '../reducers/marvelReducer';
