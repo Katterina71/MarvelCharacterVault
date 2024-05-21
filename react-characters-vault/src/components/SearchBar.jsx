@@ -1,14 +1,25 @@
-import React, {useContext} from 'react'
-import MarvelContext from '../context/MarvelContext'
+import React, { useState } from 'react';
+import { useMarvel } from '../context/MarvelContext';
 
-export default function SearchBar() {
+const SearchBar = () => {
+  const [query, setQuery] = useState('');
+  const { fetchCharacters } = useMarvel();
 
-    const {dispatch} = useContext(MarvelContext);
-    const handleSearch = (event) => {
-        dispatch ({type: 'SET_SEARCH_QUERY', payload:event.target.value})
-    }
-    
+  const handleSearch = () => {
+    fetchCharacters(query);
+  };
+
   return (
-    <input type='text' placeholder='Search characters' onChange={handleSearch}></input>
-  )
-}
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search characters"
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
+};
+
+export default SearchBar;

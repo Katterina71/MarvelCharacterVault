@@ -1,21 +1,35 @@
+const initialState = {
+  characters: {},
+  loading: false,
+  error: null,
+  favorites: [],
+};
 
- const marvelReducer = (state, action) => {
-    switch (action.type){
-      case 'SET_CHARACTERS':
-        return {...state, characters: action.payload };
-       case 'SET_SEARCH_QUERY':
-        return { ...state, searchQuery: action.payload };
-      case 'SET_SELECTED_CHARACTER': 
-        return { ...state, selectedCharacter: action.payload };
-      case 'ADD_TO_FAVORITES':
-        return {...state, favoriteCharacters: [...state.favoriteCharacters, action.payload] };
-      case 'REMOVE_FROM_FAVORITES':
-        return {...state, favoriteCharacters: state.favoriteCharacters.filter(character => character.id !== action.payload)};
-      default: 
-        return state;
-    }
+const marvelReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_LOADING':
+      return { ...state, loading: true };
+    case 'FETCH_SUCCESS':
+      return {
+        ...state,
+        characters: {
+          ...state.characters,
+          [action.payload.letter]: action.payload.characters,
+        },
+        loading: false,
+      };
+    case 'FETCH_FAILURE':
+      return { ...state, loading: false, error: action.payload };
+    case 'ADD_FAVORITE':
+      return { ...state, favorites: [...state.favorites, action.payload] };
+    case 'REMOVE_FAVORITE':
+      return {
+        ...state,
+        favorites: state.favorites.filter(fav => fav.id !== action.payload),
+      };
+    default:
+      return state;
   }
+};
 
-  export default marvelReducer;
-
-  
+export { initialState, marvelReducer };

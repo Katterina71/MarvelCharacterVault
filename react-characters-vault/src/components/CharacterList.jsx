@@ -1,30 +1,33 @@
-import React, { useContext } from 'react';
-import MarvelContext from '../context/MarvelContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useMarvel } from '../context/MarvelContext';
 
-const CharacterList = () => {
-  const { state, dispatch } = useContext(MarvelContext);
-  const { characters, searchQuery } = state;
+const CharacterList = ({ letter }) => {
+  const { state, fetchCharacters, addFavorite } = useMarvel();
 
-  // Ensure characters is defined before filtering
-  const filteredCharacters = characters ? characters.filter(character =>
-    character.name.toLowerCase().includes(searchQuery.toLowerCase())
-  ) : [];
+  React.useEffect(() => {
+    fetchCharacters(letter);
+  }, [letter]);
 
-  const handleAdd = (character) => {
-    dispatch({type: 'ADD_TO_FAVORITES', payload: character})
-}
+  if (state.loading) {
+    return <p>Loading...</p>;
+  }
+
+  const characters = state.characters[letter] || [];
 
   return (
-    <ul>
-      {filteredCharacters.map(character => (
-        <li key={character.id} onClick={() => dispatch({ type: 'SET_SELECTED_CHARACTER', payload: character })}>
-          {character.name}
-          <button  onClick={(e) => {e.stopPropagation(); handleAdd(character)}}>Add favorites</button>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h2>Characters starting with {letter}</h2>
+      <ul>
+        {characters.map(character => (
+          <li key={character.id}>
+            <Link to={`/character/${character.id}`}>{character.name}</Link>
+            <button onClick={() => addFavorite(character)}>❤️</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
 export default CharacterList;
-

@@ -1,60 +1,35 @@
-import React, { useReducer, useEffect } from 'react';
-import axios  from 'axios';
-import { generateMarvelApiUrl } from './marvelApi';
-import marvelReducer from './reducers/marvelReducers';
-
-// import CharacterList from './components/CharacterList'
-import SearchBar from './components/SearchBar';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { MarvelProvider } from './context/MarvelContext';
+import Navbar from './components/Navbar';
+import AlphabetButtons from './components/AlphabetButtons';
 import CharacterList from './components/CharacterList';
-import FavoriteCharacters from './components/FavoriteCharacters';
-import MarvelContext from './context/MarvelContext';
-import CharacterDetails from './components/CharacterDetails';
+import CharacterDetail from './components/CharacterDetail';
+import SearchBar from './components/SearchBar';
+import Favorites from './components/Favorites';
+import './index.css';
 
-import './App.css'
+const App = () => {
+  const [selectedLetter, setSelectedLetter] = useState('A');
 
-
-
-function App() {
-
-const initialState = {
-    characters: [],
-    searchQuery: '',
-    selectedCharacter: null,
-    favoriteCharacters: []
-}
-
-const [state, dispatch] = useReducer(marvelReducer, initialState)
-
-
-
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const endpoint = 'characters';
-      const url = generateMarvelApiUrl(endpoint);
-      const response = await axios.get(url);
-      dispatch({ type: 'SET_CHARACTERS', payload: response.data.data.results });
-    } catch (error) {
-      console.error('Error fetching characters:', error);
-    }
+  const handleLetterClick = (letter) => {
+    setSelectedLetter(letter);
   };
 
-  fetchData();
-}, []);
-
-
   return (
-    <MarvelContext.Provider value={{ state, dispatch }}>
-      <div>
-        <h1>Marvel Character Explorer</h1>
+    <MarvelProvider>
+      <Router>
+        <Navbar />
         <SearchBar />
-        <CharacterList />
-        <CharacterDetails />
-        <FavoriteCharacters />
-      </div>
+        <AlphabetButtons onLetterClick={handleLetterClick} />
+        <Routes>
+          <Route path="/" element={<CharacterList letter={selectedLetter} />} />
+          <Route path="/character/:id" element={<CharacterDetail />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </Router>
+    </MarvelProvider>
+  );
+};
 
-    </MarvelContext.Provider>
-  )
-}
-
-export default App
+export default App;
