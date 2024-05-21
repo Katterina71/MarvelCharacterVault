@@ -1,11 +1,11 @@
-import React from 'react';
+import {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
 const CharacterList = ({ letter }) => {
   const { state, fetchCharacters, addFavorite } = useMarvel();
 
-  React.useEffect(() => {
+useEffect(() => {
     if (!letter) return;
     fetchCharacters(letter);
   }, [letter]);
