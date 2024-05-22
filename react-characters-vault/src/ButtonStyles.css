@@ -1,0 +1,86 @@
+/* ButtonStyles.css */
+
+/* Default button style */
+button {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Hover state */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Active state */
+  button:active {
+    background-color: #004494;
+    transform: scale(0.98);
+  }
+  
+  /* Disabled state */
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Additional button variations */
+  
+  /* Secondary button */
+  button.secondary {
+    background-color: #6c757d;
+  }
+  
+  button.secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  button.secondary:active {
+    background-color: #4e555b;
+  }
+  
+  /* Success button */
+  button.success {
+    background-color: #28a745;
+  }
+  
+  button.success:hover {
+    background-color: #218838;
+  }
+  
+  button.success:active {
+    background-color: #1e7e34;
+  }
+  
+  /* Danger button */
+  button.danger {
+    background-color: #dc3545;
+  }
+  
+  button.danger:hover {
+    background-color: #c82333;
+  }
+  
+  button.danger:active {
+    background-color: #bd2130;
+  }
+  
+  /* Icon button */
+  button.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button.icon i {
+    margin-right: 5px;
+  }
+  

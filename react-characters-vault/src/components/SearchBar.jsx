@@ -2,6 +2,8 @@ import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
+import '../ButtonStyles.css'; // Import button styles
+
 const SearchBar = () => {
   const [query, setQuery] = useState('');
   const { searchCharacters } = useMarvel();
