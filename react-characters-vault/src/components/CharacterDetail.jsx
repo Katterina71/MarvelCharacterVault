@@ -2,11 +2,13 @@ import  { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
+import {useMarvel} from '../context/MarvelContext'
 import '../CharacterDetail.css'; // Import the CSS file for styling
 
 const CharacterDetail = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
+  const { addFavorite } = useMarvel();
 
   useEffect(() => {
     const fetchCharacterDetail = async () => {
@@ -34,6 +36,7 @@ const CharacterDetail = () => {
         <div className="character-info">
           <h1>{character.name}</h1>
           <p>{character.description || "No description available."}</p>
+          <button onClick={() => addFavorite(character)}>❤️</button>
         </div>
       </div>
       <div className="character-details">

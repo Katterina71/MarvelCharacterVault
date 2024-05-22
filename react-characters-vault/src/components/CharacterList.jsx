@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
-import { ColorRing } from 'react-loader-spinner'
+import { ColorRing } from 'react-loader-spinner' // Import spinner for loading data
 import '../ButtonStyles.css'; // Import button styles
 
 const CharacterList = ({ letter }) => {
@@ -14,12 +14,6 @@ useEffect(() => {
   }, [letter]);
 
   if (state.loading) {
-    // return <p>Loading...</p>;
-//   return (<ClipLoader
-//   size={150}
-//   aria-label="Loading Spinner"
-
-// />)
     return (<ColorRing
       visible={true}
       height="80"
