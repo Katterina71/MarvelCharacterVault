@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
 import { ColorRing } from 'react-loader-spinner' // Import spinner for loading data
-import '../ButtonStyles.css'; // Import button styles
+import '../style/ButtonStyles.css'; // Import button styles
 
 const CharacterList = ({ letter }) => {
   const { state, fetchCharacters, addFavorite } = useMarvel();
@@ -45,7 +45,7 @@ useEffect(() => {
         {characters.map(character => (
           <li key={character.id}>
             <Link to={`/character/${character.id}`}>{character.name}</Link>
-            <button onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
+            <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
           </li>
         ))}
       </ul>

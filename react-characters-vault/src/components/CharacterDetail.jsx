@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
 import {useMarvel} from '../context/MarvelContext'
-import '../CharacterDetail.css'; // Import the CSS file for styling
+import '../style/CharacterDetail.css'; // Import the CSS file for styling
+import '../index.css'
 
 const CharacterDetail = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ const CharacterDetail = () => {
   }
 
   return (
-    <div className="character-detail">
+    <div className="character-detail main">
       <Link to="/" className="back-link">Back to list</Link>
       <div className="character-header">
         <img
@@ -36,7 +37,7 @@ const CharacterDetail = () => {
         <div className="character-info">
           <h1>{character.name}</h1>
           <p>{character.description || "No description available."}</p>
-          <button onClick={() => addFavorite(character)}>❤️</button>
+          <button className='icon' onClick={() => addFavorite(character)}>❤️</button>
         </div>
       </div>
       <div className="character-details">

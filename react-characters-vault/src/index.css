@@ -1,4 +1,14 @@
-@import './ButtonStyles.css';
+/* index.css */
+
+@import 'https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap';
+
+/* Global styles */
+body {
+  font-family: 'Sora', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 nav {
   display: flex;
@@ -18,6 +28,8 @@ nav a:hover {
 
 button {
   margin: 0.5em;
+  padding: 0.5em 1em;
+  font-family: 'Sora', sans-serif;
 }
 
 ul {
@@ -32,12 +44,23 @@ li {
 input[type="text"] {
   padding: 0.5em;
   margin: 0.5em 0;
-}
-
-button {
-  padding: 0.5em 1em;
+  font-family: 'Sora', sans-serif;
 }
 
 h2 {
   margin-top: 1em;
+  font-family: 'Sora', sans-serif;
+}
+
+.main {
+  margin: 50px 100px 100px;
+  font-family: 'Sora', sans-serif;
+}
+
+.search  {
+  margin: 10px 100px 10px;
+}
+
+.welcome {
+  margin-bottom: 50px;
 }

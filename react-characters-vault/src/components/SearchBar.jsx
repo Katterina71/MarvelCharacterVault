@@ -2,7 +2,7 @@ import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMarvel } from '../context/MarvelContext';
 
-import '../ButtonStyles.css'; // Import button styles
+import '../style/ButtonStyles.css'; 
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -21,7 +21,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className='search'>
     <input
       type="text"
       value={query}

@@ -9,7 +9,9 @@ import CharacterDetail from './components/CharacterDetail';
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Favorites from './components/Favorites';
+import Footer from './components/Footer';
 import './index.css';
+import Welcome from './components/Welcome';
 
 const App = () => {
   const [selectedLetter, setSelectedLetter] = useState('');
@@ -29,8 +31,13 @@ const App = () => {
             element={
               <>
                 <HeroSection />
+               
+                <div className='main'>
+                <Welcome />
                 <AlphabetButtons onLetterClick={handleLetterClick} />
+                
                 <CharacterList letter={selectedLetter} />
+                </div>
               </>
             }
           />
@@ -38,6 +45,7 @@ const App = () => {
           <Route path="/search" element={<SearchResults />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
+        <Footer />
       </Router>
     </MarvelProvider>
   );

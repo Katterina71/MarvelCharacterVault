@@ -8,7 +8,7 @@ button {
     padding: 10px 20px;
     margin: 5px;
     color: #ffffff;
-    background-color: #007bff;
+    background-color: #ce4343;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -17,12 +17,12 @@ button {
   
   /* Hover state */
   button:hover {
-    background-color: #0056b3;
+    background-color: #b73434;
   }
   
   /* Active state */
   button:active {
-    background-color: #004494;
+    background-color: #b75858;
     transform: scale(0.98);
   }
   
@@ -75,12 +75,16 @@ button {
   
   /* Icon button */
   button.icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #ffffff;
+    border: #bd2130 2px solid;
   }
   
-  button.icon i {
-    margin-right: 5px;
+  button.icon:hover {
+    background-color: #b75858;
   }
   
+    
+  button.icon:disabled {
+    background-color: #c7c6c6;
+    border: 0;
+  }

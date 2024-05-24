@@ -12,13 +12,13 @@ const Favorites = () => {
   }
 
   return (
-    <div>
+    <div className='main'>
       <h2>Favorites</h2>
       <ul>
         {state.favorites.map(character => (
           <li key={character.id}>
             <Link to={`/character/${character.id}`}>{character.name}</Link>
-            <button onClick={() => removeFavorite(character.id)}>❌</button>
+            <button className='icon' onClick={() => removeFavorite(character.id)}>❌</button>
           </li>
         ))}
       </ul>
