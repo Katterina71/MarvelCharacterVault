@@ -101,3 +101,17 @@
     text-decoration: underline;
   }
   
+  .character-links {
+    margin-top: 20px;
+  }
+  
+  .character-links a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .character-links a:hover {
+    text-decoration: underline;
+  }

@@ -30,6 +30,12 @@ const CharacterDetail = () => {
   if (!character) {
     return <p>Loading...</p>;
   }
+  
+  //Referral links do not work on https://www.marvel.com/
+  // const wikiUrl = character.urls.find(url => url.type === 'wiki')?.url;
+  // const detailUrl = character.urls.find(url => url.type === 'detail')?.url;
+
+  const comiclinkUrl = character.urls.find(url => url.type === 'comiclink')?.url;
 
   return (
     <div className="character-detail main">
@@ -44,6 +50,11 @@ const CharacterDetail = () => {
           <h1>{character.name}</h1>
           <p>{character.description || "No description available."}</p>
           <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
+          <div className="character-links">
+            {/* {wikiUrl && <a href={wikiUrl} target="_blank" rel="noopener noreferrer">Wiki</a>}
+            {detailUrl && <a href={detailUrl} target="_blank" rel="noopener noreferrer">Details</a>} */}
+            {comiclinkUrl && <a href={comiclinkUrl} target="_blank" rel="noopener noreferrer">Comic Link</a>}
+          </div>
         </div>
       </div>
       <div className="character-details">
@@ -60,11 +71,11 @@ const CharacterDetail = () => {
             </ul>
           </div>
           <div className="character-section">
-            <h3>Stories</h3>
+            <h3>Comics</h3>
             <ul>
-              {character.stories.items.map((story) => (
-                <li key={story.resourceURI}>
-                  <a href={story.resourceURI}>{story.name}</a>
+              {character.comics.items.map((comic) => (
+                <li key={comic.resourceURI}>
+                  <a href={comic.resourceURI}>{comic.name}</a>
                 </li>
               ))}
             </ul>
