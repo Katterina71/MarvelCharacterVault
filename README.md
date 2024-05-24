@@ -21,14 +21,14 @@ Welcome to the Marvel Characters App! This project is a React application that a
 
 ## Live Site
 
-Check out the live site [here](https://your-live-site-link.com).
+Check out the live site [here](https://main--marvel-characters-vault.netlify.app/).
 
 ## Usage Instructions
 
-1. **Home Page**: Browse Marvel characters by selecting a letter from the alphabet. Click on a character's name to view their details.
-2. **Search**: Use the search bar to find characters by name. Press Enter or click the search button to initiate the search.
-3. **Character Details**: View detailed information about a character, including their series, stories, and events.
-4. **Favorites**: Add characters to your list of favorites by clicking the heart button. View and manage your favorites by navigating to the Favorites page.
+1. [**Home Page**] (https://main--marvel-characters-vault.netlify.app/): Browse Marvel characters by selecting a letter from the alphabet. Click on a character's name to view their details.
+2. [**Search**](https://main--marvel-characters-vault.netlify.app/search): Use the search bar to find characters by name. Press Enter or click the search button to initiate the search.
+3. [**Character Details**](https://main--marvel-characters-vault.netlify.app/character/1009351): View detailed information about a character, including their series, stories, and events.
+4. [**Favorites**](https://main--marvel-characters-vault.netlify.app/favorites): Add characters to your list of favorites by clicking the heart button. View and manage your favorites by navigating to the Favorites page.
 
 ## Unsolved Problems
 
