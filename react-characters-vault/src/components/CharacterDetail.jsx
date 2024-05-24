@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
 import {useMarvel} from '../context/MarvelContext'
+import { ColorRing } from 'react-loader-spinner' // Import spinner for loading data
 import '../style/CharacterDetail.css'; // Import the CSS file for styling
 import '../index.css'
 
@@ -28,7 +29,15 @@ const CharacterDetail = () => {
 
 
   if (!character) {
-    return <p>Loading...</p>;
+    return (<ColorRing
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="color-ring-loading"
+      wrapperStyle={{}}
+      wrapperClass="color-ring-wrapper"
+      colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+    />)
   }
   
   //Referral links do not work on https://www.marvel.com/

@@ -9,7 +9,7 @@
     display: inline-block;
     margin-bottom: 20px;
     text-decoration: none;
-    color: #007bff;
+    color: #a0181c;
     font-weight: bold;
   }
   
@@ -64,7 +64,7 @@
     top: 0;
     bottom: 0;
     width: 5px;
-    background-color: #007bff;
+    background-color: #a0181c;
     border-radius: 2px;
   }
   
@@ -88,12 +88,12 @@
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
-    background-color: #007bff;
+    background-color: #a0181c;
     border-radius: 50%;
   }
   
   .character-section ul li a {
-    color: #007bff;
+    color: #a0181c;
     text-decoration: none;
   }
   
@@ -108,7 +108,7 @@
   .character-links a {
     margin-right: 15px;
     text-decoration: none;
-    color: #007bff;
+    color: #a0181c;
     font-weight: bold;
   }
   
