@@ -9,7 +9,7 @@ import '../index.css'
 const CharacterDetail = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
-  const { addFavorite } = useMarvel();
+  const {state, addFavorite } = useMarvel();
 
   useEffect(() => {
     const fetchCharacterDetail = async () => {
@@ -20,6 +20,12 @@ const CharacterDetail = () => {
 
     fetchCharacterDetail();
   }, [id]);
+
+
+  const handleAddFavorite = (character) => {
+    addFavorite(character);
+  };
+
 
   if (!character) {
     return <p>Loading...</p>;
@@ -37,7 +43,7 @@ const CharacterDetail = () => {
         <div className="character-info">
           <h1>{character.name}</h1>
           <p>{character.description || "No description available."}</p>
-          <button className='icon' onClick={() => addFavorite(character)}>❤️</button>
+          <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
         </div>
       </div>
       <div className="character-details">

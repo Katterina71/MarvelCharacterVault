@@ -1,0 +1,45 @@
+/* CharacterList.css */
+
+.character-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .character-card {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .character-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    color: #a0181c;
+  }
+  
+  .character-name {
+    font-size: 1.2em;
+  }
+  
+  .character-card button {
+    padding: 0.5em 1em;
+    font-family: 'Sora', sans-serif;
+  }
+  
+  .character-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

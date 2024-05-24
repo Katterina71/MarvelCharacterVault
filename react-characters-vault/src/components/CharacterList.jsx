@@ -5,6 +5,7 @@ import { useMarvel } from '../context/MarvelContext';
 
 import { ColorRing } from 'react-loader-spinner' // Import spinner for loading data
 import '../style/ButtonStyles.css'; // Import button styles
+import '../style/CharacterList.css'
 
 const CharacterList = ({ letter }) => {
   const { state, fetchCharacters, addFavorite } = useMarvel();
@@ -41,14 +42,16 @@ useEffect(() => {
   return (
     <div>
       {letter && <h2>Characters starting with {letter}</h2>}
-      <ul>
+      <div className="character-list">
         {characters.map(character => (
-          <li key={character.id}>
-            <Link to={`/character/${character.id}`}>{character.name}</Link>
+          <div key={character.id} className="character-card">
+            <Link to={`/character/${character.id}`} className='character-link'>
+            <span className='character-Name'>{character.name}</span>
             <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
-          </li>
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

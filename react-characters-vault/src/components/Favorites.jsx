@@ -14,14 +14,16 @@ const Favorites = () => {
   return (
     <div className='main'>
       <h2>Favorites</h2>
-      <ul>
+      <div className="character-list">
         {state.favorites.map(character => (
-          <li key={character.id}>
-            <Link to={`/character/${character.id}`}>{character.name}</Link>
+          <div key={character.id} className="character-card">
+            <Link to={`/character/${character.id}`} className='character-link'>
+            <span className='character-Name'>{character.name}</span>
             <button className='icon' onClick={() => removeFavorite(character.id)}>❌</button>
-          </li>
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
