@@ -27,6 +27,8 @@ const marvelReducer = (state, action) => {
       };
     case 'FETCH_FAILURE':
       return { ...state, loading: false, error: action.payload };
+      case 'SET_FAVORITES':
+     return { ...state, favorites: action.payload };
     case 'ADD_FAVORITE':
       return { ...state, favorites: [...state.favorites, action.payload] };
     case 'REMOVE_FAVORITE':

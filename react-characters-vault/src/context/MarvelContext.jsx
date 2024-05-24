@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext, useEffect } from 'react';
+import { createContext, useReducer, useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
 import { initialState, marvelReducer } from '../reducers/marvelReducer';
@@ -7,16 +7,25 @@ const MarvelContext = createContext();
 
 const MarvelProvider = ({ children }) => {
   const [state, dispatch] = useReducer(marvelReducer, initialState);
+  const initialLoad = useRef(true); // This allows us to track whether the initial load has occurred.
 
-//Save list of favorites
- useEffect(() => {
-  const saveFavorites = JSON.parser(localStorage.getItem('favorites')) || 
-  dispatch ({type: 'SET_FAVORITES', payload: saveFavorites})
- },[])
- 
-useEffect(()=>{
-  localStorage.setItem('favorites', JSON.stringify(state.addFavorites))
-},[state.favorites])
+// Load favorites from localStorage when the app initializes
+useEffect(() => {
+  const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  console.log('Loaded favorites from localStorage:', savedFavorites); // Debugging
+  dispatch({ type: 'SET_FAVORITES', payload: savedFavorites });
+}, []);
+
+// Save favorites to localStorage whenever the favorites state changes, except on initial load
+useEffect(() => {
+  if (initialLoad.current) {
+    initialLoad.current = false;
+    return;
+  }
+
+  console.log('Saving favorites to localStorage:', state.favorites); // Debugging
+  localStorage.setItem('favorites', JSON.stringify(state.favorites));
+}, [state.favorites]);
 
 
 

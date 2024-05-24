@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { useMarvel } from '../context/MarvelContext';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +7,7 @@ const Favorites = () => {
   const { state, removeFavorite } = useMarvel();
 
   if (state.favorites.length === 0) {
+
     return <p>No favorites yet</p>;
   }
 
