@@ -24,6 +24,10 @@ Welcome to the Marvel Characters App! This project is a React application that a
 
 Check out the live site [here](https://main--marvel-characters-vault.netlify.app/).
 
+## **Example**
+![](https://github.com/Katterina71/Celestial-Canvas/blob/main/info/Celectial.gif)
+
+
 ## Usage Instructions
 
 1. [**Home Page**](https://main--marvel-characters-vault.netlify.app/): Browse Marvel characters by selecting a letter from the alphabet. Click on a character's name to view their details.
