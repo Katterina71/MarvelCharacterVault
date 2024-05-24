@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { generateMarvelApiUrl } from '../api/marvelApi';
 import { initialState, marvelReducer } from '../reducers/marvelReducer';
@@ -7,6 +7,18 @@ const MarvelContext = createContext();
 
 const MarvelProvider = ({ children }) => {
   const [state, dispatch] = useReducer(marvelReducer, initialState);
+
+//Save list of favorites
+ useEffect(() => {
+  const saveFavorites = JSON.parser(localStorage.getItem('favorites')) || 
+  dispatch ({type: 'SET_FAVORITES', payload: saveFavorites})
+ },[])
+ 
+useEffect(()=>{
+  localStorage.setItem('favorites', JSON.stringify(state.addFavorites))
+},[state.favorites])
+
+
 
   const fetchCharacters = async (letter) => {
     const url = generateMarvelApiUrl('characters', 100, 0) + `&nameStartsWith=${letter}`;
