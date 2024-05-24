@@ -2,6 +2,13 @@
 
 Welcome to the Marvel Characters App! This project is a React application that allows users to discover Marvel characters, view their details, and manage a list of favorite characters. 
 
+## Live Site
+
+Check out the live site [here](https://main--marvel-characters-vault.netlify.app/).
+
+## **Example**
+![](https://github.com/Katterina71/MarvelCharacterVault/blob/main/react-characters-vault/public/MarvelVault.gif)
+
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces.
@@ -20,12 +27,7 @@ Welcome to the Marvel Characters App! This project is a React application that a
 5. **Local Storage**: Favorites are persisted across sessions using `localStorage`, ensuring that users don't lose their favorite characters when they close the browser.
 6. **Deployment**: The application is deployed on Netlify, providing continuous deployment and hosting services for the app.
 
-## Live Site
 
-Check out the live site [here](https://main--marvel-characters-vault.netlify.app/).
-
-## **Example**
-![](https://github.com/Katterina71/MarvelCharacterVault/blob/main/react-characters-vault/public/MarvelVault.gif)
 
 
 ## Usage Instructions
