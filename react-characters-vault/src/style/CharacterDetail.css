@@ -57,7 +57,7 @@
     padding-left: 25px;
   }
   
-  .character-section h3::before {
+  .character-section  h3::before  {
     content: '';
     position: absolute;
     left: 0;
@@ -80,7 +80,7 @@
     position: relative;
   }
   
-  .character-section ul li::before {
+  .character-section  ul li::before {
     content: '';
     position: absolute;
     left: 10px;
@@ -92,12 +92,12 @@
     border-radius: 50%;
   }
   
-  .character-section ul li a {
-    color: #a0181c;
+  .character-section  ul li a {
+    color:  #a0181c;
     text-decoration: none;
   }
   
-  .character-section ul li a:hover {
+  .character-section  ul li a:hover {
     text-decoration: underline;
   }
   
@@ -108,10 +108,14 @@
   .character-links a {
     margin-right: 15px;
     text-decoration: none;
-    color: #a0181c;
+    color:  #a0181c;
     font-weight: bold;
   }
   
   .character-links a:hover {
     text-decoration: underline;
+  }
+
+  .text-details {
+    color:  #a0181c;
   }

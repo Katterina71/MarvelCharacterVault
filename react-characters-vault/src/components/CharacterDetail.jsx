@@ -74,7 +74,7 @@ const CharacterDetail = () => {
             <ul>
               {character.series.items.map((series) => (
                 <li key={series.resourceURI}>
-                  <a href={series.resourceURI}>{series.name}</a>
+                  <p className='text-details'>{series.name}</p>
                 </li>
               ))}
             </ul>
@@ -84,7 +84,8 @@ const CharacterDetail = () => {
             <ul>
               {character.comics.items.map((comic) => (
                 <li key={comic.resourceURI}>
-                  <a href={comic.resourceURI}>{comic.name}</a>
+                 <p className='text-details'>{comic.name}</p>
+                  {/* <a href={comic.resourceURI}>{comic.name}</a> */}
                 </li>
               ))}
             </ul>
@@ -94,7 +95,8 @@ const CharacterDetail = () => {
             <ul>
               {character.events.items.map((event) => (
                 <li key={event.resourceURI}>
-                  <a href={event.resourceURI}>{event.name}</a>
+                    <p className='text-details'>{event.name}</p>
+                  {/* <a href={event.resourceURI}>{event.name}</a> */}
                 </li>
               ))}
             </ul>
