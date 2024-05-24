@@ -25,7 +25,7 @@ Welcome to the Marvel Characters App! This project is a React application that a
 Check out the live site [here](https://main--marvel-characters-vault.netlify.app/).
 
 ## **Example**
-![](https://github.com/Katterina71/Celestial-Canvas/blob/main/info/Celectial.gif)
+![](https://github.com/Katterina71/MarvelCharacterVault/blob/main/react-characters-vault/public/MarvelVault.gif)
 
 
 ## Usage Instructions
