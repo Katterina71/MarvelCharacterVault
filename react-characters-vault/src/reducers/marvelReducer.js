@@ -36,6 +36,10 @@ const marvelReducer = (state, action) => {
         ...state,
         favorites: state.favorites.filter(fav => fav.id !== action.payload),
       };
+    case 'REMOVE_ALL_FAVORITE': 
+    return {
+      favorites: []
+    }
     default:
       return state;
   }

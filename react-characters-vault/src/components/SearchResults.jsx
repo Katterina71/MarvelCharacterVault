@@ -33,11 +33,11 @@ const SearchResults = () => {
       <h2>Search Results</h2>
       <div className = 'character-list'>
         {characters.map(character => (
-          <div key={character.id} className="character-card">
+          <div key={character.id} className="character-card character-link">
             <Link to={`/character/${character.id}`} className='character-link'>
             <span className='character-Name'>{character.name}</span>
+            </Link>
             <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
-          </Link>
           </div>
         ))}
       </div>

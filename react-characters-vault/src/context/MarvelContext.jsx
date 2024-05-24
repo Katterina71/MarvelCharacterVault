@@ -67,8 +67,12 @@ useEffect(() => {
     dispatch({ type: 'REMOVE_FAVORITE', payload: id });
   };
 
+  const removeAllFavorite = () => {
+    dispatch({type: 'REMOVE_ALL_FAVORITE'})
+  }
+
   return (
-    <MarvelContext.Provider value={{ state, fetchCharacters, searchCharacters, addFavorite, removeFavorite }}>
+    <MarvelContext.Provider value={{ state, fetchCharacters, searchCharacters, addFavorite, removeFavorite, removeAllFavorite }}>
       {children}
     </MarvelContext.Provider>
   );

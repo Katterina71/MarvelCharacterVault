@@ -44,11 +44,11 @@ useEffect(() => {
       {letter && <h2>Characters starting with {letter}</h2>}
       <div className="character-list">
         {characters.map(character => (
-          <div key={character.id} className="character-card">
+          <div key={character.id} className="character-card character-link">
             <Link to={`/character/${character.id}`} className='character-link'>
             <span className='character-Name'>{character.name}</span>
-            <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
             </Link>
+            <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>
           </div>
         ))}
       </div>
