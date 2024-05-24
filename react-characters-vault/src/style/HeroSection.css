@@ -1,7 +1,7 @@
 /* HeroSection.css */
 
 .hero-section {
-    background-image: url('../public/marvel-bg.jpeg');
+    background-image: url('/marvel-bg.jpeg');
     background-size: cover;
     background-position: center;
     height: 400px;
