@@ -18,6 +18,7 @@ Welcome to the Marvel Characters App! This project is a React application that a
 3. **API Integration**: Axios is used to fetch data from the Marvel API. Secure hashes are generated using CryptoJS to authenticate requests.
 4. **Routing**: React Router is used to handle navigation between different views, including the home page, character detail pages, and the favorites list.
 5. **Local Storage**: Favorites are persisted across sessions using `localStorage`, ensuring that users don't lose their favorite characters when they close the browser.
+6. **Deployment**: The application is deployed on Netlify, providing continuous deployment and hosting services for the app.
 
 ## Live Site
 
