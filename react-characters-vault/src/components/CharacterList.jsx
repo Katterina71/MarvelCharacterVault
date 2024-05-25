@@ -46,6 +46,11 @@ useEffect(() => {
         {characters.map(character => (
           <div key={character.id} className="character-card character-link">
             <Link to={`/character/${character.id}`} className='character-link'>
+            <img
+              src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+              alt={character.name}
+              className="character-sm-image"
+              />
             <span className='character-Name'>{character.name}</span>
             </Link>
             <button className='icon' onClick={() => handleAddFavorite(character)} disabled ={ state.favorites.some(fav => fav.id === character.id)}>❤️</button>

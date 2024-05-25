@@ -1,7 +1,7 @@
 /* CharacterDetail.css */
 
 .character-detail {
-    padding: 20px;
+    padding: 10px;
     font-family: Arial, sans-serif;
   }
   
@@ -118,4 +118,10 @@
 
   .text-details {
     color:  #a0181c;
+  }
+
+  .character-sm-image {
+    width: 100px;
+    border-radius: 10px;
+    margin-right: 10px;
   }
